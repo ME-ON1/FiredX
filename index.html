@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+
 <head>
     <meta charset="utf-8" />
     <title>Will you be fired?</title>
@@ -14,34 +14,36 @@
 <div class="container">
     <section class="box">
         <p class="help">1: Low, 10: High</p>
-        <h1 class="title">Don't build (or build) that feature</h1>
-        <p>A simple, opinionated tool for helping decide whether a its your time for layoff or not.</p>
+        <h1 class="title">Will you be fired or not?</h1>
+        <p>A simple, opinionated tool to help you decide whether it's your time for a layoff or not.</p>
         <br />
         <form class="form">
             <fieldset class="p-performance">
                 <span class="value"></span>
-                <label>How well has your company performed ( 1 = not well, 10 = NVIDIA level ) in the last quarters?</label>
+                <label>How well has your company performed in the last few quarters? (1 = Not well, 10 = NVIDIA AI boom level)</label>
                 <input type="range" min="1" max="10" step="0.5" value="5.5" />
             </fieldset>
             <fieldset class="p-relations">
                 <span class="value"></span>
-                <label>How good are your relationship with your manager? ( 1 == bad; they want you out, 10 == They will fight for you)</label>
+                <label>How good is your relationship with your manager? (1 = Bad; they want you out, 10 = They will fight for you)</label>
                 <input type="range" min="1" max="10" step="0.5" value="5.5" />
             </fieldset>
             <fieldset class="p-ratings">
                 <span class="value"></span>
-                <label>What was your most recent performance rating?( 1 == bad; PIP situation, 10 == very good; Maximum bonus ) </label>
+                <label>What was your most recent performance rating? (1 = Bad; PIP situation, 10 = Very good; maximum bonus) </label>
                 <input type="range" min="1" max="10" step="0.5" value="5.5" />
             </fieldset>
             <fieldset class="p-impact">
                 <span class="value"></span>
-                <label>Have you made a significant impact on business outcomes or revenue recently?(1 == not much, 10 == company is running because of you ) </label>
+                <label>Have you made a significant impact on your employer's business outcomes or revenue recently? (1 = Not much, 10 = The company is running because of you) </label>
                 <input type="range" min="1" max="10" step="0.5" value="5.5" />
             </fieldset>
             <fieldset class="p-salary">
                 <span class="value"></span>
-                <label>Do you think your salary is higher than that of your peers in similar roles? ( Yes == You know everyone's salary, No == Not Sure ) </label>
+                <label>Do you think your salary is higher than that of your peers in similar roles? (1-5 = You know everyone's salary, No = Not sure) </label>
                 <input type="range" min="1" max="10" step="0.5" value="5.5" />
+								<div class="p-salary-description"> </div>
+            </fieldset>
             </fieldset>
         </form>
         <div class="text-center">
