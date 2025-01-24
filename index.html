@@ -2,8 +2,8 @@
 <html lang="en-US">
 <head>
     <meta charset="utf-8" />
-    <title>Don't build (or build) that feature</title>
-    <meta name="description" content="A simple, opinionated decision system to help decide whether to build a software feature or not." />
+    <title>Will you be fired?</title>
+    <meta name="description" content="A simple, opinionated tool for helping decide whether a its your time for layoff or not." />
     <link rel="shortcut icon" href="https://dont.build/favicon.png" />
     <meta property="og:image" content="https://dont.build/thumb.png">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,37 +15,32 @@
     <section class="box">
         <p class="help">1: Low, 10: High</p>
         <h1 class="title">Don't build (or build) that feature</h1>
-        <p>A simple, opinionated tool for helping decide whether a software feature is worth building.</p>
+        <p>A simple, opinionated tool for helping decide whether a its your time for layoff or not.</p>
         <br />
         <form class="form">
-            <fieldset class="p-users">
+            <fieldset class="p-performance">
                 <span class="value"></span>
-                <label>What proportion of users (1 = a small proportion, 10 = all users) are likely to use the feature?</label>
-                <input type="range" min="1" max="10" step="0.5" value="5.5" />
-            </fieldset> 
-            <fieldset class="p-effort">
-                <span class="value"></span>
-                <label>What is the time, technical effort, and cost to build the feature?</label>
+                <label>How well has your company performed ( 1 = not well, 10 = NVIDIA level ) in the last quarters?</label>
                 <input type="range" min="1" max="10" step="0.5" value="5.5" />
             </fieldset>
-            <fieldset class="p-user-value">
+            <fieldset class="p-relations">
                 <span class="value"></span>
-                <label>How important are the target users to the existing product?</label>
+                <label>How good are your relationship with your manager? ( 1 == bad; they want you out, 10 == They will fight for you)</label>
                 <input type="range" min="1" max="10" step="0.5" value="5.5" />
             </fieldset>
-            <fieldset class="p-operational-complexity">
+            <fieldset class="p-ratings">
                 <span class="value"></span>
-                <label>What is the operational / business complexity of the feature?</label>
+                <label>What was your most recent performance rating?( 1 == bad; PIP situation, 10 == very good; Maximum bonus ) </label>
                 <input type="range" min="1" max="10" step="0.5" value="5.5" />
             </fieldset>
-            <fieldset class="p-feature-value">
+            <fieldset class="p-impact">
                 <span class="value"></span>
-                <label>How valuable is the feature to the target users, truly?</label>
+                <label>Have you made a significant impact on business outcomes or revenue recently?(1 == not much, 10 == company is running because of you ) </label>
                 <input type="range" min="1" max="10" step="0.5" value="5.5" />
             </fieldset>
-            <fieldset class="p-negative-impact">
+            <fieldset class="p-salary">
                 <span class="value"></span>
-                <label>How much potential technical risk can the feature bring to the rest of the product?</label>
+                <label>Do you think your salary is higher than that of your peers in similar roles? ( Yes == You know everyone's salary, No == Not Sure ) </label>
                 <input type="range" min="1" max="10" step="0.5" value="5.5" />
             </fieldset>
         </form>
