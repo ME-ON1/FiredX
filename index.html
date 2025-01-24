@@ -1,228 +1,267 @@
-<!DOCTYPE html>
-
-<head>
-    <meta charset="utf-8" />
-    <title>Will you be fired?</title>
-    <meta name="description" content="A simple, opinionated tool for helping decide whether a its your time for layoff or not." />
-    <link rel="shortcut icon" href="https://dont.build/favicon.png" />
-    <meta property="og:image" content="https://dont.build/thumb.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="style.css?v=2" rel="stylesheet" type="text/css" />
-</head>
-<body>
-
-<div class="container">
-    <section class="box">
-        <p class="help">1: Low, 10: High</p>
-        <h1 class="title">Will you be fired or not?</h1>
-        <p>A simple, opinionated tool to help you decide whether it's your time for a layoff or not.</p>
-        <br />
-        <form class="form">
-            <fieldset class="p-performance">
-                <span class="value"></span>
-                <label>How well has your company performed in the last few quarters? (1 = Not well, 10 = NVIDIA AI boom level)</label>
-                <input type="range" min="1" max="10" step="0.5" value="5.5" />
-            </fieldset>
-            <fieldset class="p-relations">
-                <span class="value"></span>
-                <label>How good is your relationship with your manager? (1 = Bad; they want you out, 10 = They will fight for you)</label>
-                <input type="range" min="1" max="10" step="0.5" value="5.5" />
-            </fieldset>
-            <fieldset class="p-ratings">
-                <span class="value"></span>
-                <label>What was your most recent performance rating? (1 = Bad; PIP situation, 10 = Very good; maximum bonus) </label>
-                <input type="range" min="1" max="10" step="0.5" value="5.5" />
-            </fieldset>
-            <fieldset class="p-impact">
-                <span class="value"></span>
-                <label>Have you made a significant impact on your employer's business outcomes or revenue recently? (1 = Not much, 10 = The company is running because of you) </label>
-                <input type="range" min="1" max="10" step="0.5" value="5.5" />
-            </fieldset>
-            <fieldset class="p-salary">
-                <span class="value"></span>
-                <label>Do you think your salary is higher than that of your peers in similar roles? (1-5 = You know everyone's salary, No = Not sure) </label>
-                <input type="range" min="1" max="10" step="0.5" value="5.5" />
-								<div class="p-salary-description"> </div>
-            </fieldset>
-            </fieldset>
-        </form>
-        <div class="text-center">
-          <button id="btn-toggle-answer">Show answer</button>
-        </div>
-        <div class="answer hide">
-            <h1><span><span class="bool"></span> (<span class="percent"></span>)</span></h1>
-            <textarea class="summary" readonly></textarea>
-            <textarea hidden class="md-summary" readonly></textarea>
-            <button class="copy">Copy</button>
-            <button class="copy-md">Copy as Markdown</button>
-        </div>
-    </section>
-
-    <noscript><h1>This page requires Javascript to function.</h1></noscript>
-
-    <section>
-        <p>
-Losing a job can feel like a personal failure, but the truth is—it’s not your fault. Layoffs happen for countless reasons beyond your control: market shifts, company restructuring, or economic downturns. It doesn’t define your worth, your skills, or your future.
-
-Think of it as a redirection, not a rejection. Some of the most successful people have faced layoffs and used them as stepping stones to greater opportunities. It’s a chance to reflect, reassess, and reimagine your path.
-
-        </p>
-        <p>
-Remember, you are not alone. Countless professionals have been where you are, and many have emerged stronger and more fulfilled. Take this time to upskill, network, and explore opportunities that align with your passions and strengths.
-
-Stay positive, stay resilient, and believe in yourself. Your next opportunity is waiting—bigger and better than before.
-        </p>
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Will you be fired?</title>
+		<meta
+			name="description"
+			content="A simple, opinionated tool for helping decide whether a its your time for layoff or not."
+		/>
+		<link rel="shortcut icon" href="https://dont.build/favicon.png" />
+		<meta property="og:image" content="https://dont.build/thumb.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="style.css?v=2" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div class="container">
+			<section class="box">
+				<p class="help">1: Low, 10: High</p>
+				<h1 class="title">Will you be fired or not?</h1>
 				<p>
-The path is to keep moving forward and continue learning.
-</p>
-    </section>
+					A simple, opinionated tool to help you decide whether it's your time
+					for a layoff or not.
+				</p>
+				<br />
+				<form class="form">
+					<fieldset class="p-performance">
+						<span class="value"></span>
+						<label
+							>How well has your company performed in the last few quarters? (1
+							= Not well, 10 = NVIDIA AI boom level)</label
+						>
+						<input type="range" min="1" max="10" step="0.5" value="5.5" />
+					</fieldset>
+					<fieldset class="p-relations">
+						<span class="value"></span>
+						<label
+							>How good is your relationship with your manager? (1 = Bad; they
+							want you out, 10 = They will fight for you)</label
+						>
+						<input type="range" min="1" max="10" step="0.5" value="5.5" />
+					</fieldset>
+					<fieldset class="p-ratings">
+						<span class="value"></span>
+						<label
+							>What was your most recent performance rating? (1 = Bad; PIP
+							situation, 10 = Very good; maximum bonus)
+						</label>
+						<input type="range" min="1" max="10" step="0.5" value="5.5" />
+					</fieldset>
+					<fieldset class="p-impact">
+						<span class="value"></span>
+						<label
+							>Have you made a significant impact on your employer's business
+							outcomes or revenue recently? (1 = Not much, 10 = The company is
+							running because of you)
+						</label>
+						<input type="range" min="1" max="10" step="0.5" value="5.5" />
+					</fieldset>
+					<fieldset class="p-salary">
+						<span class="value"></span>
+						<label
+							>Do you think your salary is higher than that of your peers in
+							similar roles? (1-5 = You know everyone's salary, No = Not sure)
+						</label>
+						<input type="range" min="1" max="10" step="0.5" value="5.5" />
+						<div class="p-salary-description"></div>
+					</fieldset>
+				</form>
+				<div class="text-center">
+					<button id="btn-toggle-answer">Show answer</button>
+				</div>
+				<div class="answer hide">
+					<h1>
+						<span
+							><span class="bool"></span> (<span class="percent"></span>)</span
+						>
+					</h1>
+					<textarea class="summary" readonly></textarea>
+					<textarea hidden class="md-summary" readonly></textarea>
+					<button class="copy">Copy</button>
+					<button class="copy-md">Copy as Markdown</button>
+				</div>
+			</section>
 
-    <footer>Tarun Sharma <a href="https://github.com/ME-ON1">ME-ON1</a> &mdash;<a class="footer-year"></a> <a href="https://github.com/ME-ON1/FiredX">GitHub</a></footer>
-		<footer>Inspired Fork of  <a href="https://github.com/knadh/dont.build">GitHub</a></footer>
-</div>
+			<noscript><h1>This page requires Javascript to function.</h1></noscript>
 
+			<section>
+				<p>
+					Losing a job can feel like a personal failure, but the truth is—it’s
+					not your fault. Layoffs happen for countless reasons beyond your
+					control: market shifts, company restructuring, or economic downturns.
+					It doesn’t define your worth, your skills, or your future. Think of it
+					as a redirection, not a rejection. Some of the most successful people
+					have faced layoffs and used them as stepping stones to greater
+					opportunities. It’s a chance to reflect, reassess, and reimagine your
+					path.
+				</p>
+				<p>
+					Remember, you are not alone. Countless professionals have been where
+					you are, and many have emerged stronger and more fulfilled. Take this
+					time to upskill, network, and explore opportunities that align with
+					your passions and strengths. Stay positive, stay resilient, and
+					believe in yourself. Your next opportunity is waiting—bigger and
+					better than before.
+				</p>
+				<p>The path is to keep moving forward and continue learning.</p>
+			</section>
 
-<script>
-(function() {
+			<footer>
+				Tarun Sharma <a href="https://github.com/ME-ON1">ME-ON1</a> &mdash;<a
+					class="footer-year"
+				></a>
+				<a href="https://github.com/ME-ON1/FiredX">GitHub</a>
+			</footer>
+			<footer>
+				Inspired Fork of
+				<a href="https://github.com/knadh/dont.build">GitHub</a>
+			</footer>
+		</div>
 
+		<script>
+			(function () {
+				const params = [
+					{ weight: 0.3, value: 5.5, negative: true, name: "p-performance" },
+					{ weight: 0.15, value: 5.5, negative: true, name: "p-relations" },
+					{ weight: 0.2, value: 5.5, negative: true, name: "p-ratings" },
+					{ weight: 0.2, value: 5.5, negative: true, name: "p-impact" },
+					{ weight: 0.15, value: 5.5, negative: true, name: "p-salary" },
+				];
 
-    const params = [
-        { weight: 0.30, value: 5.5, negative: true, name: 'p-performance'},
-        { weight: 0.15, value: 5.5, negative: true, name: 'p-relations'},
-        { weight: 0.20, value: 5.5, negative: true, name: 'p-ratings',},
-        { weight: 0.20, value: 5.5, negative : true, name: 'p-impact', },
-        { weight: 0.15, value : 5.5, negative : true, name: "p-salary"},
-    ]
+				params.forEach((p, n) => {
+					let net = 0;
+					const inp = document.querySelector(`.${p.name} input`);
 
-    params.forEach((p, n) => {
-        let net = 0;
-        const inp = document.querySelector(`.${p.name} input`);
+					inp.value = p.value;
+					inp.oninput = (e) => {
+						const val = parseFloat(e.target.value, 64);
+						document.querySelector(`.${p.name} .value`).innerText = val;
+						p.value = val;
 
-        inp.value = p.value;
-        inp.oninput = (e) => {
-            const val = parseFloat(e.target.value, 64);
-            document.querySelector(`.${p.name} .value`).innerText = val;
-            p.value = val;
+						// Sum all weighted params.
+						const sum = params.reduce((prev, pm) => {
+							let v = pm.value;
+							if (pm.negative) {
+								v = 10 - v;
+							}
 
-            // Sum all weighted params.
-            const sum = params.reduce((prev, pm) => {
-                let v = pm.value;
-                if (pm.negative) {
-                    v = 10 - v;
-                }
+							return prev + (v / 10) * pm.weight;
+						}, 0);
 
-                return prev + (v / 10 * pm.weight);
-            }, 0);
+						// Display the results.
+						const percent = `${(sum * 100).toFixed(0)}%`;
 
-            // Display the results.
-            const percent = `${(sum * 100).toFixed(0)}%`
+						// 0 - 40 safe - Enjoy another quarter
+						// 40. - 60 moderate risk zone - Uncertain
+						// 60. - 80  warning zone - Take actions
+						// 80. - 100 danger zone  -
 
-					// 0 - 40 safe - Enjoy another quarter
-					// 40. - 60 moderate risk zone - Uncertain
-					// 60. - 80  warning zone - Take actions
-					// 80. - 100 danger zone  -
+						let b = "Sadly Yes :( Gear up for grinding";
+						if (sum > 0.6 && sum < 0.8) {
+							b = `Warning Zone - Take Action`;
+						} else if (sum > 0.4 && sum < 0.6) {
+							b = "Moderate Risk zone - uncertain ";
+						} else if (sum < 0.4) {
+							b = `Safe Zone! - Keep Learning Though`;
+						}
 
-            let b = 'Sadly Yes :( Gear up for grinding';
-					if (sum > 0.6 && sum < 0.8) {
-                b = `Warning Zone - Take Action`;
-								}
-						else if ( sum > 0.4 && sum < 0.6 ) {
-							 b = "Moderate Risk zone - uncertain "
-            } else if (sum < 0.4) {
-                b = `Safe Zone! - Keep Learning Though`;
-            }
+						document.querySelector(".answer .percent").innerText = percent;
+						document.querySelector(".answer .bool").innerText = b;
 
-            document.querySelector(".answer .percent").innerText = percent;
-            document.querySelector(".answer .bool").innerText = b;
+						// Print the summary in the textbox.
+						let summary = "";
+						let mdSummary = "||Question|Answer|\n|---|---|---|\n";
+						document.querySelectorAll(".form fieldset").forEach((f, n) => {
+							summary += `${n + 1}. ${f.querySelector("label").innerText} = ${
+								f.querySelector("input").value
+							}\n`;
+							mdSummary += `|${n + 1}|${f.querySelector("label").innerText}|${
+								f.querySelector("input").value
+							}|\n`;
+						});
+						summary += `\n=> ${b} (${percent})`;
+						mdSummary += `||Result:|${b} (${percent})|`;
+						document.querySelector(".summary").value = summary;
+						document.querySelector(".md-summary").value = mdSummary;
+					};
 
-            // Print the summary in the textbox.
-            let summary = '';
-            let mdSummary = '||Question|Answer|\n|---|---|---|\n';
-            document.querySelectorAll(".form fieldset").forEach((f, n) => {
-                summary += `${n + 1}. ${f.querySelector("label").innerText} = ${f.querySelector("input").value}\n`;
-                mdSummary += `|${n + 1}|${f.querySelector("label").innerText}|${f.querySelector("input").value}|\n`;
-            });
-            summary += `\n=> ${b} (${percent})`;
-            mdSummary += `||Result:|${b} (${percent})|`;
-            document.querySelector('.summary').value = summary;
-            document.querySelector('.md-summary').value = mdSummary;
-        };
+					inp.dispatchEvent(new Event("input"));
+				});
+			})();
 
-        inp.dispatchEvent(new Event('input'));
-    });
-})();
+			(function () {
+				const ans = document.querySelector(".answer");
+				const btn = document.querySelector("#btn-toggle-answer");
 
-(function () {
-    const ans = document.querySelector('.answer');
-    const btn = document.querySelector('#btn-toggle-answer');
+				btn.addEventListener("click", function () {
+					if (ans.style.display === "block") {
+						ans.style.display = "none";
+						btn.innerText = "Show answer";
+					} else {
+						ans.style.display = "block";
+						btn.innerText = "Hide answer";
+					}
+				});
+			})();
 
-    btn.addEventListener('click', function() {
-        if(ans.style.display === 'block') {
-            ans.style.display = 'none';
-            btn.innerText = "Show answer";
-        } else {
-            ans.style.display = 'block';
-            btn.innerText = "Hide answer";
-        }
-    });
-})();
+			(function () {
+				const copyBtn = document.querySelector(".copy");
+				const copyMdBtn = document.querySelector(".copy-md");
 
-(function () {
-    const copyBtn = document.querySelector('.copy');
-    const copyMdBtn = document.querySelector('.copy-md');
+				var copyToClipboard = function (val) {
+					var tempTxt = document.createElement("textarea");
+					tempTxt.value = val;
+					document.body.appendChild(tempTxt);
+					tempTxt.select();
+					document.execCommand("copy");
+					document.body.removeChild(tempTxt);
 
-    var copyToClipboard = function(val) {
-        var tempTxt=document.createElement("textarea");
-        tempTxt.value=val;
-        document.body.appendChild(tempTxt);
-        tempTxt.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempTxt);
+					let notice = document.createElement("span");
+					notice.className = "notice visible";
+					notice.innerHTML = "Copied to clipboard.";
+					document.body.appendChild(notice);
+					setTimeout(() => {
+						document.body.removeChild(notice);
+					}, 3000);
+				};
 
-        let notice = document.createElement("span");
-        notice.className = "notice visible";
-        notice.innerHTML = "Copied to clipboard.";
-        document.body.appendChild(notice);
-        setTimeout(() => {
-            document.body.removeChild(notice);
-        }, 3000);
-    }
+				copyBtn.addEventListener("click", function () {
+					copyToClipboard(document.querySelector(".summary").value);
+				});
 
-    copyBtn.addEventListener('click', function() {
-        copyToClipboard(document.querySelector('.summary').value);
-    });
+				copyMdBtn.addEventListener("click", function () {
+					copyToClipboard(document.querySelector(".md-summary").value);
+				});
+			})();
 
-    copyMdBtn.addEventListener('click', function() {
-        copyToClipboard(document.querySelector('.md-summary').value);
-    });
-})();
+			// set footer year
+			(function () {
+				const currentYear = new Date().getFullYear();
+				document.querySelector(".footer-year").innerText = currentYear;
+			})();
 
-// set footer year
-(function (){
-	const currentYear = (new Date()).getFullYear()
-	document.querySelector(".footer-year").innerText = currentYear;
-})();
-
-
-(function(){
-
-let descriptions = {
-      1: "No idea – I have no information about my peers' salaries.",
-      2: "Limited knowledge – I have heard a few things but not sure if they are accurate.",
-      4: "Some idea – I have a rough sense from discussions, job postings, or industry reports. It's less",
-      6: "Fairly confident – I know of some direct comparisons from colleagues and its fair",
-      8: "Very confident – I have reliable data from multiple sources and its moderately high",
-      10: "Certain – I know exactly what my peers earn and I am sure my salary is higher"
-    };
-const salaryInputRange = document.querySelector(".p-salary").addEventListener("change",(val)=>{
-	const value = val.target.value;
-	const descriptionsValue = !(Math.floor(value) & 1) || Math.floor(value) === 1 ? Math.floor(value) : Math.floor(value) - 1 ;
-		const salaryDescriptions = document.querySelector(".p-salary-description").innerText = `${value} -> ${descriptions[descriptionsValue]}`
-
-		})
-})()
-
-</script>
-
-</body>
+			(function () {
+				let descriptions = {
+					1: "No idea – I have no information about my peers' salaries.",
+					2: "Limited knowledge – I have heard a few things but not sure if they are accurate.",
+					4: "Some idea – I have a rough sense from discussions, job postings, or industry reports. It's less",
+					6: "Fairly confident – I know of some direct comparisons from colleagues and its fair",
+					8: "Very confident – I have reliable data from multiple sources and its moderately high",
+					10: "Certain – I know exactly what my peers earn and I am sure my salary is higher",
+				};
+				const salaryInputRange = document
+					.querySelector(".p-salary")
+					.addEventListener("change", (val) => {
+						const value = val.target.value;
+						const descriptionsValue =
+							!(Math.floor(value) & 1) || Math.floor(value) === 1
+								? Math.floor(value)
+								: Math.floor(value) - 1;
+						const salaryDescriptions = (document.querySelector(
+							".p-salary-description"
+						).innerText = `${value} -> ${descriptions[descriptionsValue]}`);
+					});
+			})();
+		</script>
+	</body>
 </html>
