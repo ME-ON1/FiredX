@@ -84,13 +84,14 @@ The path is to keep moving forward and continue learning.
 
 <script>
 (function() {
+
+
     const params = [
-        { weight: 0.10, value: 5.5, negative: false, name: 'p-users', },
-        { weight: 0.20, value: 5.5, negative: false, name: 'p-user-value',},
-        { weight: 0.20, value: 5.5, negative: false, name: 'p-feature-value',},
-        { weight: 0.15, value: 5.5, negative: true,  name: 'p-effort', },
-        { weight: 0.20, value: 5.5, negative: true,  name: 'p-negative-impact',},
-        { weight: 0.15, value: 5.5, negative: true,  name: 'p-operational-complexity',},
+        { weight: 0.30, value: 5.5, negative: true, name: 'p-performance'},
+        { weight: 0.15, value: 5.5, negative: true, name: 'p-relations'},
+        { weight: 0.20, value: 5.5, negative: true, name: 'p-ratings',},
+        { weight: 0.20, value: 5.5, negative : true, name: 'p-impact', },
+        { weight: 0.15, value : 5.5, negative : true, name: "p-salary"},
     ]
 
     params.forEach((p, n) => {
@@ -116,15 +117,19 @@ The path is to keep moving forward and continue learning.
             // Display the results.
             const percent = `${(sum * 100).toFixed(0)}%`
 
-            let b = 'Yes';
-            if (sum < 0.5 && sum > 0.46) {
-                b = `No, but a close call.`;
-            } else if (sum < 0.48) {
-                b = `No.`;
-            } else if (sum > 0.5 && sum < 0.54) {
-                b = `Yes, but a close call.`;
-            } else if(sum === 0.5) {
-                b = '50-50. Go with the gut.';
+					// 0 - 40 safe - Enjoy another quarter
+					// 40. - 60 moderate risk zone - Uncertain
+					// 60. - 80  warning zone - Take actions
+					// 80. - 100 danger zone  -
+
+            let b = 'Sadly Yes :( Gear up for grinding';
+					if (sum > 0.6 && sum < 0.8) {
+                b = `Warning Zone - Take Action`;
+								}
+						else if ( sum > 0.4 && sum < 0.6 ) {
+							 b = "Moderate Risk zone - uncertain "
+            } else if (sum < 0.4) {
+                b = `Safe Zone! - Keep Learning Though`;
             }
 
             document.querySelector(".answer .percent").innerText = percent;
@@ -198,6 +203,24 @@ The path is to keep moving forward and continue learning.
 	document.querySelector(".footer-year").innerText = currentYear;
 })();
 
+
+(function(){
+
+let descriptions = {
+      1: "No idea – I have no information about my peers' salaries.",
+      2: "Limited knowledge – I have heard a few things but not sure if they are accurate.",
+      4: "Some idea – I have a rough sense from discussions, job postings, or industry reports. It's less",
+      6: "Fairly confident – I know of some direct comparisons from colleagues and its fair",
+      8: "Very confident – I have reliable data from multiple sources and its moderately high",
+      10: "Certain – I know exactly what my peers earn and I am sure my salary is higher"
+    };
+const salaryInputRange = document.querySelector(".p-salary").addEventListener("change",(val)=>{
+	const value = val.target.value;
+	const descriptionsValue = !(Math.floor(value) & 1) || Math.floor(value) === 1 ? Math.floor(value) : Math.floor(value) - 1 ;
+		const salaryDescriptions = document.querySelector(".p-salary-description").innerText = `${value} -> ${descriptions[descriptionsValue]}`
+
+		})
+})()
 
 </script>
 
