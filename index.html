@@ -76,8 +76,9 @@ Stay positive, stay resilient, and believe in yourself. Your next opportunity is
 The path is to keep moving forward and continue learning.
 </p>
     </section>
-    
-    <footer><a href="https://nadh.in">Kailash Nadh</a> &mdash; 2022 / <a href="https://github.com/knadh/dont.build">GitHub</a></footer>
+
+    <footer>Tarun Sharma <a href="https://github.com/ME-ON1">ME-ON1</a> &mdash;<a class="footer-year"></a> <a href="https://github.com/ME-ON1/FiredX">GitHub</a></footer>
+		<footer>Inspired Fork of  <a href="https://github.com/knadh/dont.build">GitHub</a></footer>
 </div>
 
 
@@ -190,6 +191,13 @@ The path is to keep moving forward and continue learning.
         copyToClipboard(document.querySelector('.md-summary').value);
     });
 })();
+
+// set footer year
+(function (){
+	const currentYear = (new Date()).getFullYear()
+	document.querySelector(".footer-year").innerText = currentYear;
+})();
+
 
 </script>
 
